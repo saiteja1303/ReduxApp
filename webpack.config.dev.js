@@ -19,15 +19,16 @@ export default {
   module: {
     loaders: [
       {
-        test: /\.jsx$/, 
+        test: /\.jsx$/,
         include: [
-          path.join(__dirname, 'client')
+          path.join(__dirname, 'client'),
+          path.join(__dirname, 'Server/shared/validations')
         ],
-        loaders: [ 'react-hot', 'babel' ]
+        loaders: ['react-hot', 'babel']
       }
     ]
   },
   resolve: {
-    extensions: [ '', '.js' , '.jsx' ]
+    extensions: ['', '.js', '.jsx']
   }
 }
