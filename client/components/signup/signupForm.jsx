@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import validateInput from '../../../Server/shared/validations/signup';
 import TextFieldGroup from '../common/textfieldgroup';
 import { browserHistory } from 'react-router';
+
 class SignupForm extends Component {
 
     constructor(props) {
@@ -45,7 +46,13 @@ class SignupForm extends Component {
                 isLoading: true
             });
             this.props.userSignupRequest(this.state).then(
-                () => { browserHistory.push('/')},
+                () => { 
+                    this.props.addFlashMessage({
+                        type: 'success',
+                        text: 'You have signup up successfully welcome!'
+                    })
+                    browserHistory.push('/');
+                },
                 ({ data }) => this.setState({ errors: data, isLoading: false })
             );
         }
@@ -111,6 +118,7 @@ class SignupForm extends Component {
     }
 }
 SignupForm.propType = {
-    userSignupRequest: React.PropTypes.func.isRequired
+    userSignupRequest: React.PropTypes.func.isRequired,
+    addFlashMessage: React.PropTypes.func.isRequired
 }
 export default SignupForm;
