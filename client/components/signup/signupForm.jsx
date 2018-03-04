@@ -13,7 +13,8 @@ class SignupForm extends Component {
             password: '',
             confirmPassword: '',
             timeZone: '',
-            errors: {}
+            errors: {},
+            isLoading: false
         }
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -25,11 +26,14 @@ class SignupForm extends Component {
         })
     }
     onSubmit(e) {
-        this.setState({ errors: {} });
+        this.setState({
+            errors: {},
+            isLoading: true
+        });
         e.preventDefault();
         this.props.userSignupRequest(this.state).then(
             () => { },
-            ({ data }) => this.setState({ errors: data })
+            ({ data }) => this.setState({ errors: data, isLoading: false })
         );
 
     }
@@ -100,7 +104,7 @@ class SignupForm extends Component {
                     {errors.username && <span className="help-block">{errors.timeZone}</span>}
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-primary btn-lg">
+                    <button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
                         SignUp
                     </button>
                 </div>

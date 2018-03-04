@@ -6,7 +6,7 @@ let router = express.Router();
 
 function validateInput(data) {
     let errors = {};
-    
+
 
     if (Validator.isNull(data.username)) {
         errors.username = 'This field is required';
@@ -24,7 +24,7 @@ function validateInput(data) {
         errors.confirmPassword = 'This field is required';
     }
     if (!Validator.equals(data.password, data.confirmPassword)) {
-        errors.confirmPassword = 'Password must match'; 
+        errors.confirmPassword = 'Password must match';
     }
     if (Validator.isNull(data.timeZone)) {
         errors.timeZone = 'This field is required';
