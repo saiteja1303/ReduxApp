@@ -4,7 +4,7 @@ import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers/flashmessages';
+import rootReducer from './rootReducer';
 import routes from './routes';
 
 const store = createStore(

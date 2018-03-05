@@ -8,7 +8,7 @@ class SignUpPage extends Component {
         super(props);
     }
     render() {
-        const { userSignupRequest , addFlashMessage} = this.props
+        const { userSignupRequest, addFlashMessage } = this.props
         return (
             <div className="row">
                 <div className="col-md-4 col-md-offset-4">
@@ -18,8 +18,8 @@ class SignUpPage extends Component {
         );
     }
 }
-SignUpPage.propType = {
+SignUpPage.propTypes = {
     userSignupRequest: React.PropTypes.func.isRequired,
     addFlashMessage: React.PropTypes.func.isRequired
 }
-export default connect(null, { userSignupRequest, addFlashMessage})(SignUpPage);
+export default connect(null, { userSignupRequest, addFlashMessage })(SignUpPage);
