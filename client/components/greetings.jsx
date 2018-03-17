@@ -10,4 +10,4 @@ class Greetings extends Component {
     }
 }
 
-export default Greetings;<h1>Hii</h1>
+export default Greetings;
